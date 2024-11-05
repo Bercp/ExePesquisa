@@ -1,0 +1,24 @@
+def pesqBinRecursiva(lista, chave, esq, dir):
+    
+    meio = esq + ((dir - esq)*(chave-lista[esq])//(lista[dir]-lista[esq]))
+    
+   
+    if lista[meio] == chave:
+        return meio
+    elif lista[meio] > chave:
+        return pesqBinRecursiva(lista, chave, esq, meio - 1)
+    
+    elif lista[meio] < chave:
+        return pesqBinRecursiva(lista, chave, meio + 1, dir)
+    
+    return -1      
+
+
+
+lista = [1, 2, 5, 6, 8, 10, 12, 17, 20]
+chave = 8
+
+pesquisa = pesqBinRecursiva(lista, chave, 0, len(lista) - 1)
+
+
+print(pesquisa)
